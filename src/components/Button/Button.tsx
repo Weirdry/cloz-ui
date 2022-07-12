@@ -1,26 +1,21 @@
-import React from "react";
+import React from "react"
 import styled from "styled-components"
 
 export interface ButtonProps {
-  label: string;
+  label: string
 }
-
-function Button (props: ButtonProps) {
-  const { label } = props
-  return <Container>{label}</Container>;
-};
 
 export const Container = styled.button`
   -webkit-appearance: none;
   -webkit-tap-highlight-color: transparent;
   -moz-appearance: none;
   appearance: none;
-  
+
   margin: 0;
   border: 0;
-  
+
   display: flex;
-  
+
   width: auto;
   height: auto;
   padding: 0.75rem 1.25rem;
@@ -30,4 +25,7 @@ export const Container = styled.button`
   cursor: pointer;
 `
 
-export default Button;
+export default function Button(props: ButtonProps) {
+  const { label } = props
+  return <Container>{label}</Container>
+}
