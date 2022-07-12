@@ -1,6 +1,7 @@
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
+import babel from '@rollup/plugin-babel';
 import dts from "rollup-plugin-dts";
 
 import { terser } from "rollup-plugin-terser";
@@ -33,7 +34,6 @@ export default [
     external: [
       "styled-components"
     ],
-    globals: { 'styled-components': 'styled' }
   },
   {
     input: "dist/esm/types/index.d.ts",

@@ -5,7 +5,7 @@ export interface ButtonProps {
   label: string;
 }
 
-const Button = (props: ButtonProps) => {
+function Button (props: ButtonProps) {
   const { label } = props
   return <Container>{label}</Container>;
 };
