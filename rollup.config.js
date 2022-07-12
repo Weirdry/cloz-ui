@@ -32,7 +32,8 @@ export default [
     ],
     external: [
       "styled-components"
-    ]
+    ],
+    globals: { 'styled-components': 'styled' }
   },
   {
     input: "dist/esm/types/index.d.ts",

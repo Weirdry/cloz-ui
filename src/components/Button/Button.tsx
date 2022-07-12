@@ -6,17 +6,28 @@ export interface ButtonProps {
 }
 
 const Button = (props: ButtonProps) => {
-  return <Container>{props.label}</Container>;
+  const { label } = props
+  return <Container>{label}</Container>;
 };
 
-export const Container = styled.div`
+export const Container = styled.button`
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  -moz-appearance: none;
+  appearance: none;
+  
+  margin: 0;
+  border: 0;
+  
   display: flex;
+  
   width: auto;
   height: auto;
-  padding: 0.5rem;
+  padding: 0.75rem 1.25rem;
   background-color: #000000;
   color: #ffffff;
-  font-size: 2rem;
+  font-size: 1rem;
+  cursor: pointer;
 `
 
 export default Button;
