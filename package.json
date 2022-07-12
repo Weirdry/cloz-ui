@@ -1,6 +1,6 @@
 {
   "name": "cloz-ui-library",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "description": "React UI Library",
   "scripts": {
     "rollup": "rollup -c",
@@ -56,8 +56,5 @@
   "files": [
     "dist"
   ],
-  "types": "dist/index.d.ts",
-  "dependencies": {
-    "react": "18.2.0"
-  }
+  "types": "dist/index.d.ts"
 }
