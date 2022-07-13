@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import '../../fonts/font.css'
 import { breakPoint, colourSystem, typoSystem } from '../../styles/Tokens'
 
+// Set compoonent props type
 export interface propsType {
   appearance: string
   text: string
@@ -10,6 +11,7 @@ export interface propsType {
   onClick?: any
 }
 
+// Set styled tag props type
 export interface stylePropsType {
   readonly screenRes?: any
   appearance: string
@@ -17,6 +19,7 @@ export interface stylePropsType {
   onClick: any
 }
 
+// Set component style with styled-components
 export const Container = styled.button<stylePropsType>`
   -webkit-appearance: none;
   -webkit-tap-highlight-color: transparent;
@@ -61,10 +64,12 @@ export const Container = styled.button<stylePropsType>`
   cursor: pointer;
 `
 
+// Set component interaction on click event
 const handleClick = () => {
   console.log('Button Clicked')
 }
 
+// Component
 function Button(props: propsType) {
   const { appearance, text, size, onClick } = props
 
