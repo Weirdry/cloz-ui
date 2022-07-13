@@ -338,6 +338,6 @@ export const typoSystem = {
 
 export const breakPoint = {
     desktop: `(min-width: ${tokens.screenSize.min.desktop}px)`,
-    tablet: `(max-width: ${tokens.screenSize.max.tablet}px) and (min-width: ${tokens.screenSize.max.tablet}px)`,
+    tablet: `(max-width: ${tokens.screenSize.max.tablet}px) and (min-width: ${tokens.screenSize.min.tablet}px)`,
     mobile: `(max-width: ${tokens.screenSize.max.mobile}px)`
 }
