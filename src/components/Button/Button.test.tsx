@@ -5,6 +5,6 @@ import Button from "./Button"
 
 describe("Button", ()=>{
     test("renders the Button component", ()=>{
-        render(<Button text="Button Text" size="auto"/>)
+        render(<Button appearance="dark" hierarchy="primary" text="Button Text" size="auto"/>)
     })
 })

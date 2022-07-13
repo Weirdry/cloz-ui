@@ -78,7 +78,18 @@ export const tokens = {
     },
 }
 
-export const colourSystem = {
+
+export interface colourSystemType {
+    [key: string]: {
+        [key: string]: {
+            [key: string]: {
+                [key: string]: (string | number)
+            }
+        }
+    }
+}
+
+export const colourSystem: colourSystemType = {
     accent: {
         primary: {
             main: {

@@ -3,23 +3,52 @@ import styled from 'styled-components'
 import '../../fonts/font.css'
 import { breakPoint, colourSystem, typoSystem } from '../../styles/Tokens'
 
+//
+//================================================================//
 // Set compoonent props type
+//================================================================//
+//
 export interface propsType {
+  /**
+  Use the loading state to indicate that the data Avatar needs is still loading.
+  */
   appearance: string
+  /**
+  Use the loading state to indicate that the data Avatar needs is still loading.
+  */
+  hierarchy: string
+  /**
+  Use the loading state to indicate that the data Avatar needs is still loading.
+  */
   text: string
+  /**
+  Use the loading state to indicate that the data Avatar needs is still loading.
+  */
   size?: string
-  onClick?: any
+  /**
+  Use the loading state to indicate that the data Avatar needs is still loading.
+  */
+  onClick?: void
 }
 
+//
+//================================================================...
 // Set styled tag props type
+//================================================================...
+//
 export interface stylePropsType {
   readonly screenRes?: any
   appearance: string
+  hierarchy: string
   size?: string
   onClick: any
 }
 
+//
+//================================================================...
 // Set component style with styled-components
+//================================================================...
+//
 export const Container = styled.button<stylePropsType>`
   -webkit-appearance: none;
   -webkit-tap-highlight-color: transparent;
@@ -40,8 +69,8 @@ export const Container = styled.button<stylePropsType>`
     props.appearance === 'transparent'
       ? props.appearance
       : props.appearance === 'dark'
-      ? colourSystem.neutral.primary.onSurface.active
-      : colourSystem.neutral.primary.surface.active};
+      ? colourSystem.neutral[props.hierarchy].onSurface.active
+      : colourSystem.neutral[props.hierarchy].surface.active};
 
   ${typoSystem.button.md.typeface};
   line-height: ${typoSystem.button.md.height};
@@ -58,25 +87,38 @@ export const Container = styled.button<stylePropsType>`
   }
   color: ${(props) =>
     props.appearance === 'dark'
-      ? colourSystem.neutral.primary.surface.active
-      : colourSystem.neutral.primary.onSurface.active};
+      ? colourSystem.neutral[props.hierarchy].surface.active
+      : colourSystem.neutral[props.hierarchy].onSurface.active};
   white-space: nowrap;
   cursor: pointer;
 `
 
+//
+//================================================================..
 // Set component interaction on click event
+//================================================================..
+//
 const handleClick = () => {
   console.log('Button Clicked')
 }
 
+//
+//================================================================..
 // Component
+/**
+- Use an avatar for attributing actions or content to specific users.
+- The user's name should always be present when using Avatar – either printed beside the avatar or in a tooltip.
+**/
+//================================================================..
+//
 function Button(props: propsType) {
-  const { appearance, text, size, onClick } = props
+  const { appearance, hierarchy, text, size, onClick } = props
 
   return (
     <Container
       screenRes={breakPoint}
       appearance={appearance}
+      hierarchy={hierarchy}
       size={size}
       onClick={onClick ? onclick : handleClick}
     >
@@ -87,8 +129,10 @@ function Button(props: propsType) {
 
 Button.defaultProps = {
   appearance: 'dark',
+  hierarchy: 'primary',
   size: 'auto',
-  text: 'Button Text',
+  text: '버튼 텍스트',
+  onClick: handleClick
 }
 
 export default Button
