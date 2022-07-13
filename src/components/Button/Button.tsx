@@ -1,7 +1,7 @@
-import React from "react"
-import styled from "styled-components"
-import "../../fonts/font.css"
-import { breakPoint, colourSystem, typoSystem } from "../../styles/Tokens"
+import React from 'react'
+import styled from 'styled-components'
+import '../../fonts/font.css'
+import { breakPoint, colourSystem, typoSystem } from '../../styles/Tokens'
 
 export interface propsType {
   appearance: string
@@ -14,6 +14,7 @@ export interface stylePropsType {
   readonly screenRes?: any
   appearance: string
   size?: string
+  onClick: any
 }
 
 export const Container = styled.button<stylePropsType>`
@@ -32,16 +33,17 @@ export const Container = styled.button<stylePropsType>`
   outline: none;
   border: none;
 
-  background-color: ${(props) => props.appearance === "transparent"
-    ? props.appearance
-    : props.appearance === "dark"
-    ? colourSystem.neutral.primary.onSurface.active
-    : colourSystem.neutral.primary.surface.active};
+  background-color: ${(props) =>
+    props.appearance === 'transparent'
+      ? props.appearance
+      : props.appearance === 'dark'
+      ? colourSystem.neutral.primary.onSurface.active
+      : colourSystem.neutral.primary.surface.active};
 
   ${typoSystem.button.md.typeface};
   line-height: ${typoSystem.button.md.height};
   letter-spacing: ${typoSystem.button.md.spacing};
-  
+
   @media ${breakPoint.desktop} {
     font-size: ${typoSystem.button.md.size.desktop};
   }
@@ -51,23 +53,37 @@ export const Container = styled.button<stylePropsType>`
   @media ${breakPoint.mobile} {
     font-size: ${typoSystem.button.md.size.mobile};
   }
-  color: ${(props) => props.appearance === "dark"
-    ? colourSystem.neutral.primary.surface.active
-    : colourSystem.neutral.primary.onSurface.active};
+  color: ${(props) =>
+    props.appearance === 'dark'
+      ? colourSystem.neutral.primary.surface.active
+      : colourSystem.neutral.primary.onSurface.active};
   white-space: nowrap;
   cursor: pointer;
 `
 
+const handleClick = () => {
+  console.log('Button Clicked')
+}
+
 function Button(props: propsType) {
   const { appearance, text, size, onClick } = props
 
-  return <Container screenRes={breakPoint} appearance={appearance} size={size}>{text}</Container>
+  return (
+    <Container
+      screenRes={breakPoint}
+      appearance={appearance}
+      size={size}
+      onClick={onClick ? onclick : handleClick}
+    >
+      {text}
+    </Container>
+  )
 }
 
 Button.defaultProps = {
-  appearance: "dark",
-  size: "auto",
-  text: "Button Text"
+  appearance: 'dark',
+  size: 'auto',
+  text: 'Button Text',
 }
 
 export default Button
