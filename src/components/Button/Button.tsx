@@ -1,8 +1,6 @@
 import React from 'react'
-import { useState } from 'react'
-//import styled from 'styled-components'
 import styled from '@emotion/styled'
-import { motion } from 'framer-motion'
+import { motion, MotionProps } from 'framer-motion'
 import '../../fonts/font.css'
 import { breakPoint, colourSystem, typoSystem } from '../../styles/Tokens'
 
@@ -43,13 +41,12 @@ export interface propsType {
 // Set styled tag props type
 //================================================================...
 //
-export interface stylePropsType
-  extends React.ComponentPropsWithoutRef<'button'> {
-  readonly screenRes?: object
+export interface stylePropsType {
   appearance: string
   hierarchy: string
   size?: string
-  onClick: any
+  transition?: object
+  onClick?: any
 }
 
 //
@@ -57,7 +54,7 @@ export interface stylePropsType
 // Set component style with styled-components
 //================================================================...
 //
-export const Container = styled.button<stylePropsType>`
+export const Container = styled(motion.button)<stylePropsType>`
   -webkit-appearance: none;
   -webkit-tap-highlight-color: transparent;
   -moz-appearance: none;
@@ -103,9 +100,58 @@ export const Container = styled.button<stylePropsType>`
       ? colourSystem.neutral[props.hierarchy].surface.active
       : colourSystem.neutral[props.hierarchy].onSurface.active};
   white-space: nowrap;
-  //cursor: pointer;
   cursor: ${(props) => (props.disabled ? 'default' : 'pointer')};
 `
+
+//
+//================================================================...
+// Set component animation with framer-motion
+//================================================================...
+//
+export const animation: object = {
+  dark: {
+    active: {
+      backgroundColor: colourSystem.neutral.primary.onSurface.active,
+      color: colourSystem.neutral.primary.surface.active,
+    },
+    hover: {
+      backgroundColor: colourSystem.neutral.primary.onSurface.hover,
+      color: colourSystem.neutral.primary.surface.hover,
+    },
+    pressed: {
+      backgroundColor: colourSystem.neutral.primary.onSurface.pressed,
+      color: colourSystem.neutral.primary.surface.pressed,
+    },
+  },
+  light: {
+    active: {
+      backgroundColor: colourSystem.neutral.primary.surface.active,
+      color: colourSystem.neutral.primary.onSurface.active,
+    },
+    hover: {
+      backgroundColor: colourSystem.neutral.primary.surface.hover,
+      color: colourSystem.neutral.primary.onSurface.hover,
+    },
+    pressed: {
+      backgroundColor: colourSystem.neutral.primary.surface.pressed,
+      color: colourSystem.neutral.primary.onSurface.pressed,
+    },
+  },
+  transparent: {
+    active: {
+      backgroundColor: 'transparent',
+      color: colourSystem.neutral.primary.onSurface.active,
+    },
+    hover: {
+      backgroundColor: 'transparent',
+      color: colourSystem.neutral.primary.onSurface.hover,
+    },
+    pressed: {
+      backgroundColor: 'transparent',
+      color: colourSystem.neutral.primary.onSurface.pressed,
+    },
+  },
+}
 
 //
 //================================================================..
@@ -131,12 +177,15 @@ function Button(props: propsType) {
 
   return (
     <Container
-      as={motion.button}
-      screenRes={breakPoint}
       appearance={appearance}
       hierarchy={hierarchy}
       size={size}
-      onClick={onClick ? onclick : handleClick}
+      variants={animation[appearance as keyof typeof animation]}
+      transition={{ duration: 0.1 }}
+      animate="active"
+      whileHover="hover"
+      whileTap="pressed"
+      onClick={typeof onClick !== 'undefined' ? onClick : handleClick}
       disabled={disabled}
     >
       {text}
