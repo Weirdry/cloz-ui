@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
-import styled from 'styled-components'
+//import styled from 'styled-components'
+import styled from '@emotion/styled'
+import { motion } from 'framer-motion'
 import '../../fonts/font.css'
 import { breakPoint, colourSystem, typoSystem } from '../../styles/Tokens'
 
@@ -41,8 +43,9 @@ export interface propsType {
 // Set styled tag props type
 //================================================================...
 //
-export interface stylePropsType {
-  readonly screenRes?: any
+export interface stylePropsType
+  extends React.ComponentPropsWithoutRef<'button'> {
+  readonly screenRes?: object
   appearance: string
   hierarchy: string
   size?: string
@@ -128,6 +131,7 @@ function Button(props: propsType) {
 
   return (
     <Container
+      as={motion.button}
       screenRes={breakPoint}
       appearance={appearance}
       hierarchy={hierarchy}
