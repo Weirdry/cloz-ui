@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState } from 'react'
 import styled from 'styled-components'
 import '../../fonts/font.css'
 import { breakPoint, colourSystem, typoSystem } from '../../styles/Tokens'
@@ -25,6 +26,10 @@ export interface propsType {
   Use the loading state to indicate that the data Avatar needs is still loading.
   */
   size?: string
+  /**
+  Use the loading state to indicate that the data Avatar needs is still loading.
+  */
+  disabled?: boolean
   /**
   Use the loading state to indicate that the data Avatar needs is still loading.
   */
@@ -90,7 +95,8 @@ export const Container = styled.button<stylePropsType>`
       ? colourSystem.neutral[props.hierarchy].surface.active
       : colourSystem.neutral[props.hierarchy].onSurface.active};
   white-space: nowrap;
-  cursor: pointer;
+  //cursor: pointer;
+  cursor: ${(props) => (props.disabled ? 'default' : 'pointer')};
 `
 
 //
@@ -113,7 +119,7 @@ const handleClick = () => {
 //================================================================..
 //
 function Button(props: propsType) {
-  const { appearance, hierarchy, text, size, onClick } = props
+  const { appearance, hierarchy, text, size, disabled, onClick } = props
 
   return (
     <Container
@@ -122,6 +128,7 @@ function Button(props: propsType) {
       hierarchy={hierarchy}
       size={size}
       onClick={onClick ? onclick : handleClick}
+      disabled={disabled}
     >
       {text}
     </Container>
@@ -133,7 +140,8 @@ Button.defaultProps = {
   hierarchy: 'primary',
   size: 'auto',
   text: '버튼 텍스트',
-  onClick: handleClick
+  disabled: false,
+  onClick: handleClick,
 }
 
 export default Button
