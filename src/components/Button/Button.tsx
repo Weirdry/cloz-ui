@@ -60,6 +60,11 @@ export const Container = styled.button<stylePropsType>`
   -moz-appearance: none;
   appearance: none;
 
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
   margin: 0;
 
   display: flex;
