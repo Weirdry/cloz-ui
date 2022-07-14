@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { motion, MotionProps } from 'framer-motion'
+import { motion } from 'framer-motion'
 import '../../fonts/font.css'
 import { breakPoint, colourSystem, typoSystem } from '../../styles/Tokens'
 
