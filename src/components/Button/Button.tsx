@@ -9,15 +9,16 @@ import { breakPoint, colourSystem, typoSystem } from '../../styles/Tokens'
 // Set compoonent props type
 //================================================================//
 //
+
 export interface propsType {
   /**
   Use the loading state to indicate that the data Avatar needs is still loading.
   */
-  appearance: string
+  appearance: "dark" | "light" | "transparent"
   /**
   Use the loading state to indicate that the data Avatar needs is still loading.
   */
-  hierarchy: string
+  hierarchy: "primary"| "secondary"
   /**
   Use the loading state to indicate that the data Avatar needs is still loading.
   */
@@ -25,7 +26,7 @@ export interface propsType {
   /**
   Use the loading state to indicate that the data Avatar needs is still loading.
   */
-  size?: string
+  size?: "auto" | "100%"
   /**
   Use the loading state to indicate that the data Avatar needs is still loading.
   */
@@ -33,7 +34,7 @@ export interface propsType {
   /**
   Use the loading state to indicate that the data Avatar needs is still loading.
   */
-  onClick?: void
+  onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
 
 //
