@@ -6,19 +6,24 @@ export default {
   title: 'Cloz UI/Button',
   component: Button,
   argTypes: {
-    appearance: {
-      control: {
-        type: 'radio',
+    designSystem: {
+      table: {
+        disable: true,
       },
-      options: ['dark', 'light', 'transparent'],
+    },
+    appearance: {
+      control: false,
     },
     hierarchy: {
+      control: false,
+    },
+    shape: {
       control: {
         type: 'radio',
       },
-      options: ['primary', 'secondary'],
+      options: ['filled', 'outlined'],
     },
-    size: {
+    width: {
       control: {
         type: 'radio',
       },
@@ -30,6 +35,9 @@ export default {
       },
       options: [true, false],
     },
+    onClick: {
+      control: false,
+    },
   },
   parameters: {
     componentSubtitle: 'Default styled button for general purpose',
@@ -38,19 +46,18 @@ export default {
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
 
-export const Default = Template.bind({})
-Default.args = {
-  appearance: 'dark',
+export const Primary = Template.bind({})
+Primary.args = {
+  appearance: 'neutral',
   hierarchy: 'primary',
-  text: '버튼 텍스트',
-  size: 'auto',
-  disabled: false,
+  shape: 'filled',
+  width: 'auto',
 }
 
-export const Test = Template.bind({})
-Test.args = {
-  appearance: 'dark',
-  hierarchy: 'primary',
-  text: 'Button Text',
-  size: 'auto',
+export const Secondary = Template.bind({})
+Secondary.args = {
+  appearance: 'neutral',
+  hierarchy: 'secondary',
+  shape: 'filled',
+  width: 'auto',
 }

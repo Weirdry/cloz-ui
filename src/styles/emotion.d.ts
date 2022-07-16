@@ -50,7 +50,7 @@ declare module '@emotion/react' {
             pressed: string
           }
         }
-        tertiary?: {
+        tertiary: {
           main: {
             active: string
             inActive: string
@@ -129,26 +129,28 @@ declare module '@emotion/react' {
         }
       }
       system: {
-        main: {
-          active: string
-          inActive: string
-          hover: string
-          pressed: string
-        }
-        onMain: {
-          active: string
-          inActive: string
-          hover: string
-          pressed: string
-        }
-        container: {
-          active: string
-        }
-        onContainer: {
-          active: string
-          inActive: string
-          hover: string
-          pressed: string
+        primary: {
+          main: {
+            active: string
+            inActive: string
+            hover: string
+            pressed: string
+          }
+          onMain: {
+            active: string
+            inActive: string
+            hover: string
+            pressed: string
+          }
+          container: {
+            active: string
+          }
+          onContainer: {
+            active: string
+            inActive: string
+            hover: string
+            pressed: string
+          }
         }
       }
     }
@@ -156,110 +158,110 @@ declare module '@emotion/react' {
       title: {
         md: {
           typeface: string
-          height?: string
-          spacing?: string
-          size?: {
-            desktop?: string
-            tablet?: string
-            mobile?: string
+          height: string
+          spacing: string
+          size: {
+            desktop: string
+            tablet: string
+            mobile: string
           }
         }
-        sm?: {
+        sm: {
           typeface: string
-          height?: string
-          spacing?: string
-          size?: {
-            desktop?: string
-            tablet?: string
-            mobile?: string
+          height: string
+          spacing: string
+          size: {
+            desktop: string
+            tablet: string
+            mobile: string
           }
         }
       }
       subtitle: {
         md: {
           typeface: string
-          height?: string
-          spacing?: string
-          size?: {
-            desktop?: string
-            tablet?: string
-            mobile?: string
+          height: string
+          spacing: string
+          size: {
+            desktop: string
+            tablet: string
+            mobile: string
           }
         }
       }
       sectionTitle: {
         md: {
           typeface: string
-          height?: string
-          spacing?: string
-          size?: {
-            desktop?: string
-            tablet?: string
-            mobile?: string
+          height: string
+          spacing: string
+          size: {
+            desktop: string
+            tablet: string
+            mobile: string
           }
         }
       }
       body: {
-        lg?: {
+        lg: {
           typeface: string
-          height?: string
-          spacing?: string
-          size?: {
-            desktop?: string
-            tablet?: string
-            mobile?: string
+          height: string
+          spacing: string
+          size: {
+            desktop: string
+            tablet: string
+            mobile: string
           }
         }
         md: {
           typeface: string
-          height?: string
-          spacing?: string
-          size?: {
-            desktop?: string
-            tablet?: string
-            mobile?: string
+          height: string
+          spacing: string
+          size: {
+            desktop: string
+            tablet: string
+            mobile: string
           }
         }
       }
       button: {
         md: {
           typeface: string
-          height?: string
-          spacing?: string
-          size?: {
-            desktop?: string
-            tablet?: string
-            mobile?: string
+          height: string
+          spacing: string
+          size: {
+            desktop: string
+            tablet: string
+            mobile: string
           }
         }
-        sm?: {
+        sm: {
           typeface: string
-          height?: string
-          spacing?: string
-          size?: {
-            desktop?: string
-            tablet?: string
-            mobile?: string
+          height: string
+          spacing: string
+          size: {
+            desktop: string
+            tablet: string
+            mobile: string
           }
         }
       }
       caption: {
         md: {
           typeface: string
-          height?: string
-          spacing?: string
-          size?: {
-            desktop?: string
-            tablet?: string
-            mobile?: string
+          height: string
+          spacing: string
+          size: {
+            desktop: string
+            tablet: string
+            mobile: string
           }
         }
       }
     }
-    breakPoint?: {
-      desktop?: string
-      tablet?: string
-      mobile?: string
+    breakPoint: {
+      desktop: string
+      tablet: string
+      mobile: string
     }
   }
 }

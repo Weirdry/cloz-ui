@@ -1,15 +1,17 @@
 /**
-+=================================================================+
-|                                                                 |
-|        +-----------------------------------------------+        |
-|         ***[Default Design System and Design Tokens]***         |
-|        +-----------------------------------------------+        |
-|                                                                 |
-|   Applied as default when custom design system is not defined   |
-|                                                                 |
-+=================================================================+
-*
-**/
+ * +=================================================================+
+ * |                                                                 |
+ * |        +-----------------------------------------------+        |
+ * |         ***[Default Design System and Design Tokens]***         |
+ * |        +-----------------------------------------------+        |
+ * |                                                                 |
+ * |   Applied as default when custom design system is not defined   |
+ * |                                                                 |
+ * +=================================================================+
+ *
+ **/
+
+import { Theme } from '@emotion/react'
 
 export const useRgba = (hex: string, alpha: number = 1): string => {
   const matched = hex.match(/\w\w/g)
@@ -89,9 +91,18 @@ export const tokens = {
       x_sm: '0.75rem',
     },
   },
+  layout: {
+    x4: '0.25rem', // 4px base
+    x10: '0.625rem', // 10px base
+  },
 }
 
-const DefaultDesingSystem = {
+const DefaultDesignSystem: Theme = {
+  /**
+   *  +=================================================================+
+   *  |                      *** Colour System ***                      |
+   *  +=================================================================+
+   */
   colourSystem: {
     accent: {
       primary: {
@@ -244,6 +255,11 @@ const DefaultDesingSystem = {
       },
     },
   },
+  /**
+   *  +=================================================================+
+   *  |                    *** Typography System ***                    |
+   *  +=================================================================+
+   */
   typoSystem: {
     title: {
       md: {
@@ -348,6 +364,11 @@ const DefaultDesingSystem = {
       },
     },
   },
+  /**
+   *  +=================================================================+
+   *  |                   *** Break-Point System ***                    |
+   *  +=================================================================+
+   */
   breakPoint: {
     desktop: `(min-width: ${tokens.screenSize.min.desktop}px)`,
     tablet: `(max-width: ${tokens.screenSize.max.tablet}px) and (min-width: ${tokens.screenSize.min.tablet}px)`,
@@ -355,4 +376,4 @@ const DefaultDesingSystem = {
   },
 }
 
-export default DefaultDesingSystem
+export default DefaultDesignSystem
