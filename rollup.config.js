@@ -32,7 +32,7 @@ export default [
       postcss(),
       terser(),
     ],
-    external: ['styled-components'],
+    // external: ['styled-components'],
   },
   {
     input: 'dist/esm/types/index.d.ts',
