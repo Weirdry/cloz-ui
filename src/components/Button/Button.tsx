@@ -177,20 +177,20 @@ function Button(props: propsType) {
   const { appearance, hierarchy, text, size, disabled, onClick } = props
 
   return (
-    <Container
-      appearance={appearance}
-      hierarchy={hierarchy}
-      size={size}
-      variants={animation[appearance as keyof typeof animation]}
-      transition={{ duration: 0.1 }}
-      animate="active"
-      whileHover="hover"
-      whileTap="pressed"
-      onClick={typeof onClick !== 'undefined' ? onClick : handleClick}
-      disabled={disabled}
-    >
-      {text}
-    </Container>
+      <Container
+        appearance={appearance}
+        hierarchy={hierarchy}
+        size={size}
+        variants={animation[appearance as keyof typeof animation]}
+        transition={{ duration: 0.1 }}
+        animate="active"
+        whileHover="hover"
+        whileTap="pressed"
+        onClick={typeof onClick !== 'undefined' ? onClick : handleClick}
+        disabled={disabled}
+      >
+        {text}
+      </Container>
   )
 }
 
