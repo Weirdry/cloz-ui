@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import { ThemeProvider } from '@emotion/react'
 import { motion } from 'framer-motion'
 import '../../fonts/font.css'
+import DefaultDesignSystem from '../../styles/DesignSystem'
 import { breakPoint, colourSystem, typoSystem } from '../../styles/Tokens'
 
 //
@@ -14,11 +16,15 @@ export interface propsType {
   /**
   Use the loading state to indicate that the data Avatar needs is still loading.
   */
-  appearance: "dark" | "light" | "transparent"
+  theme: object
   /**
   Use the loading state to indicate that the data Avatar needs is still loading.
   */
-  hierarchy: "primary"| "secondary"
+  appearance: 'dark' | 'light' | 'transparent'
+  /**
+  Use the loading state to indicate that the data Avatar needs is still loading.
+  */
+  hierarchy: 'primary' | 'secondary'
   /**
   Use the loading state to indicate that the data Avatar needs is still loading.
   */
@@ -26,7 +32,7 @@ export interface propsType {
   /**
   Use the loading state to indicate that the data Avatar needs is still loading.
   */
-  size?: "auto" | "100%"
+  size?: 'auto' | '100%'
   /**
   Use the loading state to indicate that the data Avatar needs is still loading.
   */
@@ -43,11 +49,9 @@ export interface propsType {
 //================================================================...
 //
 export interface stylePropsType {
-  appearance: string
-  hierarchy: string
-  size?: string
-  transition?: object
-  onClick?: any
+  appearance: 'dark' | 'light' | 'transparent'
+  hierarchy: 'primary' | 'secondary'
+  size?: 'auto' | '100%'
 }
 
 //
@@ -80,8 +84,8 @@ export const Container = styled(motion.button)<stylePropsType>`
     props.appearance === 'transparent'
       ? props.appearance
       : props.appearance === 'dark'
-      ? colourSystem.neutral[props.hierarchy].onSurface.active
-      : colourSystem.neutral[props.hierarchy].surface.active};
+      ? props.theme.colourSystem.neutral[props.hierarchy].onSurface.active
+      : props.theme.colourSystem.neutral[props.hierarchy].surface.active};
 
   ${typoSystem.button.md.typeface};
   line-height: ${typoSystem.button.md.height};
@@ -174,9 +178,10 @@ const handleClick = () => {
 //================================================================..
 //
 function Button(props: propsType) {
-  const { appearance, hierarchy, text, size, disabled, onClick } = props
+  const { theme, appearance, hierarchy, text, size, disabled, onClick } = props
 
   return (
+    <ThemeProvider theme={theme}>
       <Container
         appearance={appearance}
         hierarchy={hierarchy}
@@ -191,10 +196,12 @@ function Button(props: propsType) {
       >
         {text}
       </Container>
+    </ThemeProvider>
   )
 }
 
 Button.defaultProps = {
+  theme: DefaultDesignSystem,
   appearance: 'dark',
   hierarchy: 'primary',
   size: 'auto',
