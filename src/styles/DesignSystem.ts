@@ -576,6 +576,58 @@ const DefaultDesignSystem: Theme = {
         },
       },
     },
+    radius: {
+      x_sm: {
+        x1: tokens.layout.sm.x1,
+        x2: tokens.layout.sm.x2,
+        x3: tokens.layout.sm.x3,
+      },
+      sm: {
+        x1: tokens.layout.sm.x4,
+        x2: tokens.layout.sm.x5,
+        x3: tokens.layout.sm.x6,
+      },
+      md: {
+        x1: tokens.layout.sm.x7,
+        x2: tokens.layout.sm.x8,
+        x3: tokens.layout.sm.x9,
+      },
+      lg: {
+        x1: tokens.layout.sm.x10,
+        x2: tokens.layout.sm.x12,
+        x3: tokens.layout.sm.x14,
+      },
+      x_lg: {
+        x1: tokens.layout.md.x6,
+        x2: tokens.layout.md.x8,
+        x3: tokens.layout.md.x10,
+      },
+    },
+  },
+  /**
+   *  +=================================================================+
+   *  |                     *** Styling System ***                      |
+   *  +=================================================================+
+   */
+  stylingSystem: {
+    outline: {
+      x_sm: '0 0 0 black, 0 0 0 0.0625rem inset',
+      sm: '0 0 0 black, 0 0 0 0.125rem inset',
+      md: '0 0 0 black, 0 0 0 0.25rem inset',
+      lg: '0 0 0 black, 0 0 0 0.5rem inset',
+    },
+    shadow: {
+      x_sm: '0 0 0.25rem',
+      sm: '0 0.125rem 0.75rem',
+      md: '0 0.25rem 1.5rem',
+      lg: '0 0.5rem 2rem',
+    },
+    glow: {
+      x_sm: '0 0 0.25rem',
+      sm: '0 0 0.5rem',
+      md: '0 0 0.75rem',
+      lg: '0 0 1.25rem',
+    },
   },
 }
 

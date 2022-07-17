@@ -371,6 +371,53 @@ declare module '@emotion/react' {
           }
         }
       }
+      radius: {
+        x_sm: {
+          x1: string
+          x2: string
+          x3: string
+        }
+        sm: {
+          x1: string
+          x2: string
+          x3: string
+        }
+        md: {
+          x1: string
+          x2: string
+          x3: string
+        }
+        lg: {
+          x1: string
+          x2: string
+          x3: string
+        }
+        x_lg: {
+          x1: string
+          x2: string
+          x3: string
+        }
+      }
+    }
+    stylingSystem: {
+      outline: {
+        x_sm: string
+        sm: string
+        md: string
+        lg: string
+      }
+      shadow: {
+        x_sm: string
+        sm: string
+        md: string
+        lg: string
+      }
+      glow: {
+        x_sm: string
+        sm: string
+        md: string
+        lg: string
+      }
     }
   }
 

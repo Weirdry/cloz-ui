@@ -83,6 +83,7 @@ export const Container = styled(motion.button)<stylePropsType>`
 
   outline: none;
   border: none;
+  border-radius: ${(props) => props.theme.layoutSystem.radius.x_sm.x3};
 
   ${(props) =>
     (props.appearance === 'neutral' &&
@@ -90,24 +91,30 @@ export const Container = styled(motion.button)<stylePropsType>`
         ${props.shape === 'filled'
           ? `background-color: ${
               props.theme.colourSystem.neutral[props.hierarchy].onSurface.active
-            }
+            };
             color: ${
               props.theme.colourSystem.neutral[props.hierarchy].surface.active
-            }`
+            };
+            box-shadow: none;`
           : `background-color: ${
               props.theme.colourSystem.neutral[props.hierarchy].surface.active
-            }
+            };
             color: ${
               props.theme.colourSystem.neutral[props.hierarchy].onSurface.active
-            }`}
+            };
+            box-shadow: ${props.theme.stylingSystem.outline.sm} ${
+              props.theme.colourSystem.neutral[props.hierarchy].onSurface.active
+            };`}
       `) ||
     (props.appearance === 'system' &&
       css`
         ${props.shape === 'filled'
-          ? `background-color: ${props.theme.colourSystem.system.primary.main.active}
-            color: ${props.theme.colourSystem.system.primary.onMain.active}`
-          : `background-color: ${props.theme.colourSystem.system.primary.onMain.active}
-            color: ${props.theme.colourSystem.system.primary.main.active}`}
+          ? `background-color: ${props.theme.colourSystem.system.primary.main.active};
+            color: ${props.theme.colourSystem.system.primary.onMain.active};
+            box-shadow: none;`
+          : `background-color: ${props.theme.colourSystem.system.primary.onMain.active};
+            color: ${props.theme.colourSystem.system.primary.main.active};
+            box-shadow: ${props.theme.stylingSystem.outline.sm} ${props.theme.colourSystem.system.primary.main.active};`}
       `)}
 
   ${(props) => css`
@@ -168,12 +175,14 @@ function Button(props: propsType) {
                 designSystem?.colourSystem.neutral[hierarchy].onSurface[state],
               color:
                 designSystem?.colourSystem.neutral[hierarchy].surface[state],
+              boxShadow: 'none',
             }
           : {
               backgroundColor:
                 designSystem?.colourSystem.neutral[hierarchy].surface[state],
               color:
                 designSystem?.colourSystem.neutral[hierarchy].onSurface[state],
+              boxShadow: `${designSystem?.stylingSystem.outline.sm} ${designSystem?.colourSystem.neutral[hierarchy].onSurface[state]}`,
             }),
       }
     } else if (appearance === 'system') {
@@ -183,11 +192,13 @@ function Button(props: propsType) {
               backgroundColor:
                 designSystem?.colourSystem.system.primary.main[state],
               color: designSystem?.colourSystem.system.primary.onMain[state],
+              boxShadow: 'none',
             }
           : {
               backgroundColor:
                 designSystem?.colourSystem.system.primary.onMain[state],
               color: designSystem?.colourSystem.system.primary.main[state],
+              boxShadow: `${designSystem?.stylingSystem.outline.sm} ${designSystem?.colourSystem.system.primary.main[state]}`,
             }),
       }
     }
