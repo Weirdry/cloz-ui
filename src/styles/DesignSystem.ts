@@ -36,6 +36,42 @@ export const tokens = {
     },
   },
   colour: {
+    pointYellow: {
+      50: '',
+      100: '',
+      200: '',
+      300: '',
+      400: '',
+      500: '',
+      600: '',
+      700: '',
+      800: '',
+      900: '',
+    },
+    pointGreen: {
+      50: '',
+      100: '',
+      200: '',
+      300: '',
+      400: '',
+      500: '',
+      600: '',
+      700: '',
+      800: '',
+      900: '',
+    },
+    sparePurple: {
+      50: '',
+      100: '',
+      200: '',
+      300: '',
+      400: '',
+      500: '',
+      600: '',
+      700: '',
+      800: '',
+      900: '',
+    },
     grayscale: {
       0: '#ffffff', // key colour
       50: '#f3f3f3',
@@ -92,12 +128,73 @@ export const tokens = {
     },
   },
   layout: {
-    x4: '0.25rem', // 4px base
-    x10: '0.625rem', // 10px base
+    base: {
+      x4: 0.25, // 4px, 0.25rem
+      x10: 0.625, // 10px, 0.625rem
+    },
+    sm: {
+      x1: `${0.25 * 1}rem`,
+      x2: `${0.25 * 2}rem`,
+      x3: `${0.25 * 3}rem`,
+      x4: `${0.25 * 4}rem`,
+      x5: `${0.25 * 5}rem`,
+      x6: `${0.25 * 6}rem`,
+      x7: `${0.25 * 7}rem`,
+      x8: `${0.25 * 8}rem`,
+      x9: `${0.25 * 9}rem`,
+      x10: `${0.25 * 10}rem`,
+      x11: `${0.25 * 11}rem`,
+      x12: `${0.25 * 12}rem`,
+      x13: `${0.25 * 13}rem`,
+      x14: `${0.25 * 14}rem`,
+    },
+    md: {
+      x1: `${0.625 * 1}rem`,
+      x2: `${0.625 * 2}rem`,
+      x3: `${0.625 * 3}rem`,
+      x4: `${0.625 * 4}rem`,
+      x5: `${0.625 * 5}rem`,
+      x6: `${0.625 * 6}rem`,
+      x7: `${0.625 * 7}rem`,
+      x8: `${0.625 * 8}rem`,
+      x9: `${0.625 * 9}rem`,
+      x10: `${0.625 * 10}rem`,
+      x11: `${0.625 * 11}rem`,
+      x12: `${0.625 * 12}rem`,
+      x13: `${0.625 * 13}rem`,
+      x14: `${0.625 * 14}rem`,
+    },
+    lg: {
+      x1: `${1 * 1}rem`,
+      x2: `${1 * 2}rem`,
+      x3: `${1 * 3}rem`,
+      x4: `${1 * 4}rem`,
+      x5: `${1 * 5}rem`,
+      x6: `${1 * 6}rem`,
+      x7: `${1 * 7}rem`,
+      x8: `${1 * 8}rem`,
+      x9: `${1 * 9}rem`,
+      x10: `${1 * 10}rem`,
+      x11: `${1 * 11}rem`,
+      x12: `${1 * 12}rem`,
+      x13: `${1 * 13}rem`,
+      x14: `${1 * 14}rem`,
+    },
   },
 }
 
 const DefaultDesignSystem: Theme = {
+  /**
+   *  +=================================================================+
+   *  |                   *** Break-Point System ***                    |
+   *  +=================================================================+
+   */
+  breakPoint: {
+    desktop: `(min-width: ${tokens.screenSize.min.desktop}px)`,
+    tablet: `(max-width: ${tokens.screenSize.max.tablet}px) and (min-width: ${tokens.screenSize.min.tablet}px)`,
+    mobile: `(max-width: ${tokens.screenSize.max.mobile}px)`,
+  },
+
   /**
    *  +=================================================================+
    *  |                      *** Colour System ***                      |
@@ -366,13 +463,63 @@ const DefaultDesignSystem: Theme = {
   },
   /**
    *  +=================================================================+
-   *  |                   *** Break-Point System ***                    |
+   *  |                      *** Layout System ***                      |
    *  +=================================================================+
    */
-  breakPoint: {
-    desktop: `(min-width: ${tokens.screenSize.min.desktop}px)`,
-    tablet: `(max-width: ${tokens.screenSize.max.tablet}px) and (min-width: ${tokens.screenSize.min.tablet}px)`,
-    mobile: `(max-width: ${tokens.screenSize.max.mobile}px)`,
+  layoutSystem: {
+    grid: {
+      margin: {
+        desktop: {
+          x_sm: `${5 * 0.25}rem`,
+          sm: `${5 * 0.5}rem`,
+          md: `${5 * 1}rem`,
+          lg: `${5 * 1.5}rem`,
+          x_lg: `${5 * 2}rem`,
+        },
+        tablet: {
+          x_sm: `${2.5 * 0.25}rem`,
+          sm: `${2.5 * 0.5}rem`,
+          md: `${2.5 * 1}rem`,
+          lg: `${2.5 * 1.5}rem`,
+          x_lg: `${2.5 * 2}rem`,
+        },
+        mobile: {
+          x_sm: `${1.25 * 0.25}rem`,
+          sm: `${1.25 * 0.5}rem`,
+          md: `${1.25 * 1}rem`,
+          lg: `${1.25 * 2}rem`,
+          x_lg: `${1.25 * 3}rem`,
+        },
+      },
+      gutter: { desktop: '1.25rem', tablet: '1.25rem', mobile: '1.25rem' },
+      column: { desktop: 12, tablet: 8, mobile: 4 },
+    },
+    padding: {
+      components: {
+        sm: {
+          x1: tokens.layout.sm.x2,
+          x2: tokens.layout.sm.x3,
+          x3: tokens.layout.sm.x4,
+        },
+        md: {
+          x1: tokens.layout.sm.x5,
+          x2: tokens.layout.sm.x6,
+          x3: tokens.layout.sm.x7,
+        },
+        lg: {
+          x1: tokens,
+        },
+      },
+      pages: {
+        sm: {},
+        md: {},
+        lg: {},
+      },
+    },
+    spacing: {
+      components: {},
+      pages: {},
+    },
   },
 }
 

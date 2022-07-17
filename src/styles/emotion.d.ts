@@ -2,6 +2,11 @@ import '@emotion/react'
 
 declare module '@emotion/react' {
   export interface Theme {
+    breakPoint: {
+      desktop: string
+      tablet: string
+      mobile: string
+    }
     colourSystem: {
       accent: {
         primary: {
@@ -258,10 +263,29 @@ declare module '@emotion/react' {
         }
       }
     }
-    breakPoint: {
-      desktop: string
-      tablet: string
-      mobile: string
-    }
+    layoutSystem: any
   }
+
+  // export interface Theme {
+  //   breakPoint: {
+  //     [key: string]: string
+  //   }
+  //   colourSystem: {
+  //     [key: string]: {
+  //       [key: string]: {
+  //         [key: string]: {
+  //           [key: string]: string
+  //         }
+  //       }
+  //     }
+  //   }
+  //   typoSystem: {
+  //     [key: string]: {
+  //       [key: string]: {
+  //         [key: string]: any
+  //       }
+  //     }
+  //   }
+  //   layoutSystem: {}
+  // }
 }

@@ -46,18 +46,26 @@ export default {
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
 
-export const Primary = Template.bind({})
-Primary.args = {
+export const NeutralPrimary = Template.bind({})
+NeutralPrimary.args = {
   appearance: 'neutral',
   hierarchy: 'primary',
   shape: 'filled',
   width: 'auto',
 }
 
-export const Secondary = Template.bind({})
-Secondary.args = {
+export const NeutralSecondary = Template.bind({})
+NeutralSecondary.args = {
   appearance: 'neutral',
   hierarchy: 'secondary',
+  shape: 'filled',
+  width: 'auto',
+}
+
+export const SystemPrimary = Template.bind({})
+SystemPrimary.args = {
+  appearance: 'system',
+  hierarchy: 'primary',
   shape: 'filled',
   width: 'auto',
 }

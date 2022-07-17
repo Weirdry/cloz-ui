@@ -85,17 +85,30 @@ export const Container = styled(motion.button)<stylePropsType>`
   border: none;
 
   ${(props) =>
-    props.appearance === 'neutral'
-      ? css`
-          background-color: ${props.shape === 'filled'
-            ? props.theme.colourSystem.neutral[props.hierarchy].onSurface.active
-            : props.theme.colourSystem.neutral[props.hierarchy].surface.active};
-        `
-      : css`
-          background-color: ${props.shape === 'filled'
-            ? props.theme.colourSystem.system.primary.main.active
-            : props.theme.colourSystem.system.primary.onMain.active};
-        `}
+    (props.appearance === 'neutral' &&
+      css`
+        ${props.shape === 'filled'
+          ? `background-color: ${
+              props.theme.colourSystem.neutral[props.hierarchy].onSurface.active
+            }
+            color: ${
+              props.theme.colourSystem.neutral[props.hierarchy].surface.active
+            }`
+          : `background-color: ${
+              props.theme.colourSystem.neutral[props.hierarchy].surface.active
+            }
+            color: ${
+              props.theme.colourSystem.neutral[props.hierarchy].onSurface.active
+            }`}
+      `) ||
+    (props.appearance === 'system' &&
+      css`
+        ${props.shape === 'filled'
+          ? `background-color: ${props.theme.colourSystem.system.primary.main.active}
+            color: ${props.theme.colourSystem.system.primary.onMain.active}`
+          : `background-color: ${props.theme.colourSystem.system.primary.onMain.active}
+            color: ${props.theme.colourSystem.system.primary.main.active}`}
+      `)}
 
   ${(props) => css`
     ${props.theme.typoSystem.button.md.typeface}
@@ -113,11 +126,6 @@ export const Container = styled(motion.button)<stylePropsType>`
       font-size: ${props.theme.typoSystem.button.md.size.mobile};
     }
   `}
-
-  color: ${(props) =>
-    props.shape === 'filled'
-      ? props.theme.colourSystem.neutral[props.hierarchy].surface.active
-      : props.theme.colourSystem.neutral[props.hierarchy].onSurface.active};
   white-space: nowrap;
   cursor: ${(props) => (props.disabled ? 'default' : 'pointer')};
 `
@@ -148,28 +156,48 @@ function Button(props: propsType) {
   // Set component animation with framer-motion
   //================================================================...
   const animationValue = (
+    appearance: 'neutral' | 'system',
     shape: 'filled' | 'outlined',
-    state: 'active' | 'hover' | 'pressed',
+    state: 'active' | 'hover' | 'pressed' | 'inActive',
   ): object => {
-    return {
-      ...(shape === 'filled'
-        ? {
-            backgroundColor:
-              designSystem?.colourSystem.neutral[hierarchy].onSurface[state],
-            color: designSystem?.colourSystem.neutral[hierarchy].surface[state],
-          }
-        : {
-            backgroundColor:
-              designSystem?.colourSystem.neutral[hierarchy].surface[state],
-            color:
-              designSystem?.colourSystem.neutral[hierarchy].onSurface[state],
-          }),
+    if (appearance === 'neutral') {
+      return {
+        ...(shape === 'filled'
+          ? {
+              backgroundColor:
+                designSystem?.colourSystem.neutral[hierarchy].onSurface[state],
+              color:
+                designSystem?.colourSystem.neutral[hierarchy].surface[state],
+            }
+          : {
+              backgroundColor:
+                designSystem?.colourSystem.neutral[hierarchy].surface[state],
+              color:
+                designSystem?.colourSystem.neutral[hierarchy].onSurface[state],
+            }),
+      }
+    } else if (appearance === 'system') {
+      return {
+        ...(shape === 'filled'
+          ? {
+              backgroundColor:
+                designSystem?.colourSystem.system.primary.main[state],
+              color: designSystem?.colourSystem.system.primary.onMain[state],
+            }
+          : {
+              backgroundColor:
+                designSystem?.colourSystem.system.primary.onMain[state],
+              color: designSystem?.colourSystem.system.primary.main[state],
+            }),
+      }
     }
+    return {}
   }
   const animationState = {
-    active: animationValue(shape, 'active'),
-    hover: animationValue(shape, 'hover'),
-    pressed: animationValue(shape, 'pressed'),
+    active: animationValue(appearance, shape, 'active'),
+    hover: animationValue(appearance, shape, 'hover'),
+    pressed: animationValue(appearance, shape, 'pressed'),
+    inActive: animationValue(appearance, shape, 'inActive'),
   }
 
   //================================================================..
@@ -195,9 +223,9 @@ function Button(props: propsType) {
         width={width}
         variants={animationState}
         transition={{ duration: 0.1 }}
-        animate="active"
-        whileHover="hover"
-        whileTap="pressed"
+        animate={disabled ? 'inActive' : 'active'}
+        whileHover={disabled ? 'inActive' : 'hover'}
+        whileTap={disabled ? 'inActive' : 'pressed'}
         onClick={typeof onClick !== 'undefined' ? onClick : handleClick}
         disabled={disabled}
       >
@@ -210,8 +238,8 @@ function Button(props: propsType) {
 Button.defaultProps = {
   designSystem: DefaultDesignSystem,
   appearance: 'neutral',
-  shape: 'filled',
   hierarchy: 'primary',
+  shape: 'filled',
   width: 'auto',
   text: '버튼 텍스트',
   disabled: false,
