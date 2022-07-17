@@ -110,5 +110,5 @@
     "emitDeclarationOnly": true,
     "jsxImportSource": "@emotion/react"
   },
-  "include": ["src"]
+  "include": ["src", "**/*.mdx"]
 }

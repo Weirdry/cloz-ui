@@ -1,7 +1,7 @@
 {
   "name": "cloz-ui-library",
-  "version": "0.0.24-1",
-  "description": "React UI Library",
+  "version": "0.0.25",
+  "description": "Simple React UI Library",
   "scripts": {
     "rollup": "rollup -c",
     "test": "jest",
@@ -34,6 +34,8 @@
     "@storybook/testing-library": "^0.0.13",
     "@testing-library/react": "^13.3.0",
     "@types/jest": "^28.1.4",
+    "@types/mdx": "^2.0.2",
+    "@types/mdx-js__react": "^1.5.5",
     "@types/react": "^18.0.15",
     "@types/styled-components": "^5.1.25",
     "babel-jest": "^28.1.2",
