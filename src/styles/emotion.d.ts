@@ -263,7 +263,115 @@ declare module '@emotion/react' {
         }
       }
     }
-    layoutSystem: any
+    layoutSystem: {
+      grid: {
+        margin: {
+          desktop: {
+            x_sm: string
+            sm: string
+            md: string
+            lg: string
+            x_lg: string
+          }
+          tablet: {
+            x_sm: string
+            sm: string
+            md: string
+            lg: string
+            x_lg: string
+          }
+          mobile: {
+            x_sm: string
+            sm: string
+            md: string
+            lg: string
+            x_lg: string
+          }
+        }
+        gutter: {
+          desktop: string
+          tablet: string
+          mobile: string
+        }
+        column: {
+          desktop: number
+          tablet: number
+          mobile: number
+        }
+      }
+      padding: {
+        components: {
+          sm: {
+            x1: string
+            x2: string
+            x3: string
+          }
+          md: {
+            x1: string
+            x2: string
+            x3: string
+          }
+          lg: {
+            x1: string
+            x2: string
+            x3: string
+          }
+        }
+        pages: {
+          sm: {
+            x1: string
+            x2: string
+            x3: string
+          }
+          md: {
+            x1: string
+            x2: string
+            x3: string
+          }
+          lg: {
+            x1: string
+            x2: string
+            x3: string
+          }
+        }
+      }
+      spacing: {
+        components: {
+          sm: {
+            x1: string
+            x2: string
+            x3: string
+          }
+          md: {
+            x1: string
+            x2: string
+            x3: string
+          }
+          lg: {
+            x1: string
+            x2: string
+            x3: string
+          }
+        }
+        pages: {
+          sm: {
+            x1: string
+            x2: string
+            x3: string
+          }
+          md: {
+            x1: string
+            x2: string
+            x3: string
+          }
+          lg: {
+            x1: string
+            x2: string
+            x3: string
+          }
+        }
+      }
+    }
   }
 
   // export interface Theme {

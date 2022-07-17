@@ -22,6 +22,9 @@ export const useRgba = (hex: string, alpha: number = 1): string => {
   return hex
 }
 
+/**
+ * +===================== *** Design Tokens *** ========================+
+ */
 export const tokens = {
   screenSize: {
     max: {
@@ -128,10 +131,6 @@ export const tokens = {
     },
   },
   layout: {
-    base: {
-      x4: 0.25, // 4px, 0.25rem
-      x10: 0.625, // 10px, 0.625rem
-    },
     sm: {
       x1: `${0.25 * 1}rem`,
       x2: `${0.25 * 2}rem`,
@@ -183,6 +182,9 @@ export const tokens = {
   },
 }
 
+/**
+ * +===================== *** Design System *** ========================+
+ */
 const DefaultDesignSystem: Theme = {
   /**
    *  +=================================================================+
@@ -491,34 +493,88 @@ const DefaultDesignSystem: Theme = {
           x_lg: `${1.25 * 3}rem`,
         },
       },
-      gutter: { desktop: '1.25rem', tablet: '1.25rem', mobile: '1.25rem' },
-      column: { desktop: 12, tablet: 8, mobile: 4 },
+      gutter: {
+        desktop: '1.25rem',
+        tablet: '1.25rem',
+        mobile: '1.25rem',
+      },
+      column: {
+        desktop: 12,
+        tablet: 8,
+        mobile: 4,
+      },
     },
     padding: {
       components: {
         sm: {
-          x1: tokens.layout.sm.x2,
-          x2: tokens.layout.sm.x3,
-          x3: tokens.layout.sm.x4,
+          x1: tokens.layout.sm.x1,
+          x2: tokens.layout.sm.x2,
+          x3: tokens.layout.sm.x3,
         },
         md: {
-          x1: tokens.layout.sm.x5,
-          x2: tokens.layout.sm.x6,
-          x3: tokens.layout.sm.x7,
+          x1: tokens.layout.sm.x3,
+          x2: tokens.layout.sm.x4,
+          x3: tokens.layout.sm.x5,
         },
         lg: {
-          x1: tokens,
+          x1: tokens.layout.sm.x5,
+          x2: tokens.layout.sm.x6,
+          x3: tokens.layout.sm.x8,
         },
       },
       pages: {
-        sm: {},
-        md: {},
-        lg: {},
+        sm: {
+          x1: tokens.layout.md.x1,
+          x2: tokens.layout.md.x2,
+          x3: tokens.layout.md.x3,
+        },
+        md: {
+          x1: tokens.layout.md.x3,
+          x2: tokens.layout.md.x4,
+          x3: tokens.layout.md.x5,
+        },
+        lg: {
+          x1: tokens.layout.md.x6,
+          x2: tokens.layout.md.x8,
+          x3: tokens.layout.md.x10,
+        },
       },
     },
     spacing: {
-      components: {},
-      pages: {},
+      components: {
+        sm: {
+          x1: tokens.layout.sm.x1,
+          x2: tokens.layout.sm.x2,
+          x3: tokens.layout.sm.x3,
+        },
+        md: {
+          x1: tokens.layout.sm.x4,
+          x2: tokens.layout.sm.x5,
+          x3: tokens.layout.sm.x6,
+        },
+        lg: {
+          x1: tokens.layout.sm.x8,
+          x2: tokens.layout.sm.x10,
+          x3: tokens.layout.sm.x14,
+        },
+      },
+      pages: {
+        sm: {
+          x1: tokens.layout.md.x1,
+          x2: tokens.layout.md.x2,
+          x3: tokens.layout.md.x3,
+        },
+        md: {
+          x1: tokens.layout.md.x4,
+          x2: tokens.layout.md.x6,
+          x3: tokens.layout.md.x8,
+        },
+        lg: {
+          x1: tokens.layout.md.x8,
+          x2: tokens.layout.md.x10,
+          x3: tokens.layout.md.x12,
+        },
+      },
     },
   },
 }
