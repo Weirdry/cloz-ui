@@ -40,7 +40,7 @@ export default {
     },
   },
   parameters: {
-    componentSubtitle: 'Default styled button for general purpose',
+    componentSubtitle: '컨테이너와 텍스트로 이루어진 기본형 버튼 컴포넌트',
   },
 } as ComponentMeta<typeof Button>
 

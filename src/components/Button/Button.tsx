@@ -13,35 +13,35 @@ import DefaultDesignSystem from '../../styles/DesignSystem'
 //
 export interface propsType {
   /**
-  Use the loading state to indicate that the data Avatar needs is still loading.
+  emotion ThemeProvider를 통해 DesignSystem.ts의 설정값들 전달
   */
   designSystem?: Theme
   /**
-  Use the loading state to indicate that the data Avatar needs is still loading.
+  버튼의 기능, 사용처에 따른 외형 지정
   */
   appearance: 'neutral' | 'system'
   /**
-  Use the loading state to indicate that the data Avatar needs is still loading.
-  */
-  shape: 'filled' | 'outlined'
-  /**
-  Use the loading state to indicate that the data Avatar needs is still loading.
+  버튼의 중요도에 따른 위계 지정 (Primary -> Secondary -> Tertiary)
   */
   hierarchy: 'primary' | 'secondary'
   /**
-  Use the loading state to indicate that the data Avatar needs is still loading.
+  같은 위계 내에서의 세부 위계 지정 (Filled -> Outlined)
+  */
+  shape: 'filled' | 'outlined'
+  /**
+  버튼 텍스트 지정
   */
   text: string
   /**
-  Use the loading state to indicate that the data Avatar needs is still loading.
+  버튼의 가로 폭 넓이 지정
   */
   width?: 'auto' | '100%'
   /**
-  Use the loading state to indicate that the data Avatar needs is still loading.
+  버튼 활성화/비활성화 여부 지정
   */
   disabled?: boolean
   /**
-  Use the loading state to indicate that the data Avatar needs is still loading.
+  버튼 클릭(또는 탭) 시 발생하는 이벤트 지정
   */
   onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
@@ -142,8 +142,8 @@ export const Container = styled(motion.button)<stylePropsType>`
 // Component
 //================================================================..
 /**
-- Use an avatar for attributing actions or content to specific users.
-- The user's name should always be present when using Avatar – either printed beside the avatar or in a tooltip.
+- CTA, 또는 페이지/컴포넌트 간 내비게이션, 각종 화면 내 인터랙션을 작동시키기 위한 컴포넌트
+- 컴포넌트에 제공하는 Props를 통해 디자인 시스템 상의 위계 구조 설정
 **/
 //================================================================..
 //
