@@ -33,14 +33,12 @@ export default [
       terser(),
       copy({
         assets: [
-          // You can include directories
           'src/assets/fonts',
           // You can also include files
           // 'src/external/buffer.bin',
         ],
       }),
     ],
-    // external: ['styled-components'],
   },
   {
     input: 'dist/esm/types/index.d.ts',

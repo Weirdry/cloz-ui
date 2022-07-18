@@ -3,9 +3,9 @@ import styled from '@emotion/styled'
 import { Global, css } from '@emotion/react'
 import { Theme, ThemeProvider } from '@emotion/react'
 import { motion } from 'framer-motion'
-import '../../assets/fonts/font.css'
+
 import DefaultDesignSystem from '../../styles/DesignSystem'
-// import GlobalFont from 'fonts/GlobalFont'
+// import GlobalFont from '../../styles/GlobalFont'
 
 //
 //================================================================//
