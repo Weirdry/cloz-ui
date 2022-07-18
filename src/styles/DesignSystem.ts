@@ -104,7 +104,7 @@ export const tokens = {
   },
   typography: {
     typeface: {
-      x_lg: `font-family: 'Pretendard', AppleSDGothic; font-weight: 800;`,
+      x_lg: `font-family: 'Pretendard', Apple SD Gothic Neo; font-weight: 800;`,
       lg: `font-family: 'Pretendard', AppleSDGothic; font-weight: 700;`,
       md: `font-family: 'Pretendard', AppleSDGothic; font-weight: 400;`,
       sm: `font-family: 'Pretendard', AppleSDGothic; font-weight: 300;`,
