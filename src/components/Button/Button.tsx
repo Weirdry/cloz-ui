@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { css } from '@emotion/react'
+import { Global, css } from '@emotion/react'
 import { Theme, ThemeProvider } from '@emotion/react'
 import { motion } from 'framer-motion'
-import '../../fonts/font.css'
+import '../../assets/fonts/font.css'
 import DefaultDesignSystem from '../../styles/DesignSystem'
+// import GlobalFont from 'fonts/GlobalFont'
 
 //
 //================================================================//
@@ -28,6 +29,10 @@ export interface propsType {
   같은 위계 내에서의 세부 위계 지정 (Filled -> Outlined)
   */
   shape: 'filled' | 'outlined'
+  /**
+  버튼 크기 지정
+  */
+  size: 'md' | 'sm'
   /**
   버튼 텍스트 지정
   */
@@ -53,8 +58,9 @@ export interface propsType {
 //
 export interface stylePropsType {
   appearance: 'neutral' | 'system'
-  shape: 'filled' | 'outlined'
   hierarchy: 'primary' | 'secondary'
+  shape: 'filled' | 'outlined'
+  size: 'md' | 'sm'
   width?: 'auto' | '100%'
 }
 
@@ -65,7 +71,7 @@ export interface stylePropsType {
 //
 export const Container = styled(motion.button)<stylePropsType>`
   -webkit-appearance: none;
-  -webkit-tap-highoutlined-color: transparent;
+  -webkit-tap-highlight-color: transparent;
   -moz-appearance: none;
   appearance: none;
 
@@ -78,12 +84,24 @@ export const Container = styled(motion.button)<stylePropsType>`
 
   display: flex;
   justify-content: center;
-  padding: 1rem 1.5rem;
+  padding: ${(props) =>
+    (props.size === 'md' &&
+      css`
+        ${props.theme.layoutSystem.padding.components.md.x2}
+        ${props.theme.layoutSystem.padding.components.md.x3}
+      `) ||
+    (props.size === 'sm' &&
+      css`
+        ${props.theme.layoutSystem.padding.components.sm.x2}
+        ${props.theme.layoutSystem.padding.components.sm.x3}
+      `)};
   width: ${(props) => props.width};
 
   outline: none;
   border: none;
-  border-radius: ${(props) => props.theme.layoutSystem.radius.x_sm.x3};
+  border-radius: ${(props) =>
+    (props.size === 'md' && props.theme.layoutSystem.radius.x_sm.x3) ||
+    (props.size === 'sm' && props.theme.layoutSystem.radius.x_sm.x2)};
 
   ${(props) =>
     (props.appearance === 'neutral' &&
@@ -124,13 +142,19 @@ export const Container = styled(motion.button)<stylePropsType>`
 
     /* Set Media Query for Responsive Web */
     @media ${props.theme.breakPoint.desktop} {
-      font-size: ${props.theme.typoSystem.button.md.size.desktop};
+      font-size: ${(props.size === 'md' &&
+        props.theme.typoSystem.button.md.size.desktop) ||
+      (props.size === 'sm' && props.theme.typoSystem.button.sm.size.desktop)};
     }
     @media ${props.theme.breakPoint.tablet} {
-      font-size: ${props.theme.typoSystem.button.md.size.tablet};
+      font-size: ${(props.size === 'md' &&
+        props.theme.typoSystem.button.md.size.tablet) ||
+      (props.size === 'sm' && props.theme.typoSystem.button.sm.size.tablet)};
     }
     @media ${props.theme.breakPoint.mobile} {
-      font-size: ${props.theme.typoSystem.button.md.size.mobile};
+      font-size: ${(props.size === 'md' &&
+        props.theme.typoSystem.button.md.size.mobile) ||
+      (props.size === 'sm' && props.theme.typoSystem.button.sm.size.mobile)};
     }
   `}
   white-space: nowrap;
@@ -142,8 +166,8 @@ export const Container = styled(motion.button)<stylePropsType>`
 // Component
 //================================================================..
 /**
-- CTA, 또는 페이지/컴포넌트 간 내비게이션, 각종 화면 내 인터랙션을 작동시키기 위한 컴포넌트
-- 컴포넌트에 제공하는 Props를 통해 디자인 시스템 상의 위계 구조 설정
+- CTA, 페이지/컴포넌트 간 내비게이션, 각종 화면 내 인터랙션 작동 및 이벤트 실행
+- Props를 통해 디자인 시스템 위계 구조 전달 및 지정
 **/
 //================================================================..
 //
@@ -151,8 +175,9 @@ function Button(props: propsType) {
   const {
     designSystem,
     appearance,
-    shape,
     hierarchy,
+    shape,
+    size,
     text,
     width,
     disabled,
@@ -227,10 +252,12 @@ function Button(props: propsType) {
         typeof designSystem !== 'undefined' ? designSystem : DefaultDesignSystem
       }
     >
+      {/* <Global styles={GlobalFont} /> */}
       <Container
         appearance={appearance}
-        shape={shape}
         hierarchy={hierarchy}
+        shape={shape}
+        size={size}
         width={width}
         variants={animationState}
         transition={{ duration: 0.1 }}
@@ -251,6 +278,7 @@ Button.defaultProps = {
   appearance: 'neutral',
   hierarchy: 'primary',
   shape: 'filled',
+  size: 'md',
   width: 'auto',
   text: '버튼 텍스트',
   disabled: false,

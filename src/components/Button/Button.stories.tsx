@@ -23,6 +23,12 @@ export default {
       },
       options: ['filled', 'outlined'],
     },
+    size: {
+      control: {
+        type: 'radio',
+      },
+      options: ['md', 'sm'],
+    },
     width: {
       control: {
         type: 'radio',
@@ -51,6 +57,7 @@ NeutralPrimary.args = {
   appearance: 'neutral',
   hierarchy: 'primary',
   shape: 'filled',
+  size: 'md',
   width: 'auto',
 }
 
@@ -59,6 +66,7 @@ NeutralSecondary.args = {
   appearance: 'neutral',
   hierarchy: 'secondary',
   shape: 'filled',
+  size: 'md',
   width: 'auto',
 }
 
@@ -67,5 +75,6 @@ SystemPrimary.args = {
   appearance: 'system',
   hierarchy: 'primary',
   shape: 'filled',
+  size: 'md',
   width: 'auto',
 }
