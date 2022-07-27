@@ -1,6 +1,6 @@
 {
   "name": "cloz-ui",
-  "version": "0.0.35",
+  "version": "0.0.36",
   "description": "Simple React UI Library",
   "scripts": {
     "rollup": "rollup -c",
