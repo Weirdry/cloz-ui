@@ -1,6 +1,6 @@
 {
   "name": "cloz-ui",
-  "version": "0.0.36",
+  "version": "0.0.40",
   "description": "Simple React UI Library",
   "scripts": {
     "rollup": "rollup -c",
@@ -40,7 +40,6 @@
     "@types/react": "^18.0.15",
     "babel-jest": "^28.1.2",
     "babel-loader": "^8.2.5",
-    "babel-plugin-styled-components": "^2.0.7",
     "babel-preset-react-app": "^10.0.1",
     "framer-motion": "^6.5.0",
     "identity-obj-proxy": "^3.0.0",
@@ -48,7 +47,6 @@
     "jest-environment-jsdom": "^28.1.2",
     "react": "^18.2.0",
     "rollup": "^2.76.0",
-    "rollup-plugin-copy-assets": "^2.0.3",
     "rollup-plugin-dts": "^4.2.2",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",

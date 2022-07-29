@@ -5,7 +5,6 @@ import dts from 'rollup-plugin-dts'
 import postcss from 'rollup-plugin-postcss'
 import { terser } from 'rollup-plugin-terser'
 import peerDepsExternal from 'rollup-plugin-peer-deps-external'
-import copy from 'rollup-plugin-copy-assets'
 
 const packageJson = require('./package.json')
 
@@ -31,13 +30,6 @@ export default [
       typescript({ tsconfig: './tsconfig.json' }),
       postcss(),
       terser(),
-      copy({
-        assets: [
-          'src/assets/fonts',
-          // You can also include files
-          // 'src/external/buffer.bin',
-        ],
-      }),
     ],
   },
   {
