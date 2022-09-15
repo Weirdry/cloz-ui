@@ -207,19 +207,19 @@ const DefaultDesignSystem: Theme = {
 		accent: {
 			primary: {
 				main: {
-					active: '#',
-					inActive: '#',
-					hover: '#',
-					pressed: '#',
+					active: tokens.colour.pointBlue[400],
+					inActive: useRgba(tokens.colour.pointBlue[400], 0.5),
+					hover: tokens.colour.pointBlue[300],
+					pressed: tokens.colour.pointBlue[600],
 				},
 				onMain: {
-					active: '#',
-					inActive: '#',
-					hover: '#',
-					pressed: '#',
+					active: tokens.colour.grayscale[0],
+					inActive: useRgba(tokens.colour.grayscale[0], 0.5),
+					hover: tokens.colour.grayscale[0],
+					pressed: tokens.colour.grayscale[200],
 				},
 				container: {
-					active: '#',
+					active: tokens.colour.pointBlue[200],
 				},
 				onContainer: {
 					active: '#',
